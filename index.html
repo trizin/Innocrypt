@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.scss">
+    <title>JM-SC Crypto</title>
+</head>
+<video autoplay muted loop id="myVideo">
+        <source src="background.mp4" type="video/mp4">
+</video>
+<body>
+    <div class="content">
+    <img src="newlogo.png" style="max-width:300px; max-height: 300px; margin-top:30px;">
+    <h1 style="display:none"">
+        JM-SC Crypto
+    </h1>
+    <div class="container" >
+        <button onclick="encryptit();" class="red">Encrypt</button>
+        <br>
+        <button onclick="decryptit();">Decrypt</button>
+    </div>
+    <div class="info">
+        
+    </div>
+    </div>
+</body>
+
+<script src="enc.js"></script>
+<script>
+    var stat = ""
+    const ipc = require('electron').ipcRenderer
+    const selectDirBtn = document.getElementById('select-file')
+    function encryptit() {
+        ipc.send('open-file-dialog')
+        stat = "E"
+
+    }
+    function decryptit() {
+        ipc.send('open-file-dialog')
+        stat = "D"
+
+    }
+
+    ipc.on('selected-file', function (event, path) {
+        switch (stat) {
+            case "E":
+                encrypt(path.toString())
+                break;
+
+            case "D":
+                decrypt(path.toString())
+                break;
+        }
+    });
+    update = ()=>{
+        var info = document.getElementsByClassName("info")[0];
+        info.innerHTML = "<small>Current key: "+Buffer.from(key).toString("base64")+"</small>"
+        console.log("bam")
+    }
+    update();
+    setTimeout(update,1000)
+</script>
+
+</html>

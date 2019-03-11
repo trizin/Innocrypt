@@ -19,7 +19,7 @@ ipc.on('open-file-dialog', function (event) {
       frame: false,
     width: 600,
     height: 425,
-  icon:"newlogo.png",
+  icon:"med/newlogo.png",
   resizable:false,
   center:true
   })

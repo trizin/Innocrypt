@@ -1,7 +1,7 @@
 var fs = require('fs');
 const crypto = require('crypto');
-var key = Buffer.from("bRuD5WYw5wda6jHRnyLlM6wt2vteuiniQBqE70nAuhU=","base64");
-var iv = Buffer.from("ja9hq8lx2kDMLpTEn3ErSg==","base64");
+var key = Buffer.from("bRuD5WYw5wda6jHRnyLlM6wt2vteuiniQBqE70nAuhU=","base64"); //Hardcoded key
+var iv = Buffer.from("ja9hq8lx2kDMLpTEn3ErSg==","base64"); //Hardcoded iv
 var path = require("path");
 var walk = require('walk');
 

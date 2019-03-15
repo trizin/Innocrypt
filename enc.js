@@ -27,15 +27,15 @@ function encrypt(file) {
                 var fileout = fs.createWriteStream(file + ".jmc");
                 filein.pipe(cipher).pipe(fileout)
                 fs.unlink(file, (err) => { console.log(err) });
+                fs.closeSync(filein);
+                fs.closeSync(fileout)
             }catch(error){
                 console.log("Error:: ",error)
             }
         }
         
-    //    const {dialog} = require('electron').remote
-      //  const dialogOptions = {type: 'info', buttons: ['OK'], message: 'Encryption Successful'}
-       // dialog.showMessageBox(dialogOptions)
-    });
+        console.log("Encryption Successful");
+    })
 }
 
 function decrypt(file) {
@@ -57,10 +57,10 @@ function decrypt(file) {
             var fileout = fs.createWriteStream(file.replace(".jmc", ""));
             filein.pipe(cipher).pipe(fileout)
             fs.unlink(file, (err) => { console.log(err) });
+            fs.closeSync(filein);
+            fs.closeSync(fileout)
         }
-   //     const {dialog} = require('electron').remote
-     //   const dialogOptions = {type: 'info', buttons: ['OK'], message: 'Decryption Successful'}
-       // dialog.showMessageBox(dialogOptions)
+        console.log('Decryption Successful');
 
     });
 }

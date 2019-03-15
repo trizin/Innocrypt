@@ -29,7 +29,7 @@ function encrypt(file) {
             filein.pipe(cipher).pipe(fileout)
             fs.unlink(file, (err) => { console.log(err) });
             }catch(error){
-                console.log("Hata oluştu: ",error)
+                console.log("Error:: ",error)
             }
         }
         

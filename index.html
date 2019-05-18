@@ -5,8 +5,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.scss">
-    <title>JM-SC Crypto</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Crypter</title>
 </head>
 <video autoplay muted loop id="myVideo">
         <source src="med/background.mp4" type="video/mp4">
@@ -15,12 +15,12 @@
     <div class="content">
     <img src="med/newlogo.png" style="max-width:300px; max-height: 300px; margin-top:30px;">
     <h1 style="display:none"">
-        JM-SC Crypto
+        Crypter
     </h1>
     <div class="container" >
         <button onclick="encryptit();" class="red">Encrypt</button>
         <br>
-        <button onclick="decryptit();">Decrypt</button>
+        <button onclick="ipc.send('open-file-dialog')">Decrypt</button>
     </div>
     <div class="info">
         

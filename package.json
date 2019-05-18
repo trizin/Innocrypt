@@ -1,7 +1,7 @@
 {
   "name": "electro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple file encrypter/decrypter written in js.",
   "main": "app.js",
   "dependencies": {
     "electron": "^2.0.8",
@@ -12,5 +12,13 @@
     "start": "electron ."
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trizin/Innocrypt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trizin/Innocrypt/issues"
+  },
+  "homepage": "https://github.com/trizin/Innocrypt#readme"
 }

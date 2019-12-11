@@ -20,7 +20,7 @@
     <div class="container" >
         <button onclick="encryptit();" class="red">Encrypt</button>
         <br>
-        <button onclick="ipc.send('open-file-dialog')">Decrypt</button>
+        <button onclick="decryptit();">Decrypt</button>
     </div>
     <div class="info">
         
@@ -41,7 +41,6 @@
     function decryptit() {
         ipc.send('open-file-dialog')
         stat = "D"
-
     }
 
     ipc.on('selected-file', function (event, path) {
@@ -51,7 +50,7 @@
                 break;
 
             case "D":
-                decrypt(path.toString())
+                decrypt(path.toString());
                 break;
         }
     });

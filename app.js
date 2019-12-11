@@ -24,7 +24,7 @@ ipc.on('open-file-dialog', function (event) {
     icon:"med/newlogo.png",
     resizable:false,
     center:true});
-    win.setTitle("Tetrazz Crypto")
+    win.setTitle("Trizin Crypto")
     win.loadFile('index.html')
 
     //win.webContents.openDevTools()

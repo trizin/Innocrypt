@@ -8,6 +8,7 @@ var walk = require('walk');
 
 
 function encrypt(file) {
+    console.log("Encryption starting");
     var files = []
     var walker = walk.walk(file, { followLinks: false });
     // @ts-ignore
@@ -39,7 +40,7 @@ function encrypt(file) {
 }
 
 function decrypt(file) {
-    
+    console.log("Decryption starting")
     var files = []
     var walker = walk.walk(file, { followLinks: false });
     // @ts-ignore

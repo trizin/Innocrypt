@@ -2,7 +2,7 @@
 Simply encrypts/decrypts every file in the selected folder using aes-256-cbc.
 
 
-![Screen](https://i.ibb.co/6wVv4Ph/2019-12-12-21-05-26-ekran-g-r-nt-s.png)
+![Screen](https://i.ibb.co/KxcZHc5/asdasd.png)
 
 ### Installation
 

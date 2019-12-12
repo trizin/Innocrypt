@@ -1,4 +1,5 @@
-Simple file-folder encrypter/decrypter written in js. 
+# Innocrypt
+Simply encrypts/decrypts every file in the selected folder using aes-256-cbc.
 
 
 

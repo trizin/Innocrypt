@@ -4,7 +4,7 @@
   "description": "Simple file encrypter/decrypter written in js.",
   "main": "app.js",
   "dependencies": {
-    "electron": "^2.0.8",
+    "electron": "^7.2.4",
     "walk": "^2.3.14"
   },
   "devDependencies": {},
